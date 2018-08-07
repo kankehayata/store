@@ -26,7 +26,9 @@ class PostsController < ApplicationController
     @posts.name = params[:name]
     @posts.contents = params[:contents]
     @posts.price = params[:price]
-    @posts.picture = params[:picture].read
+    if params[:picture] != nil  # 画像ファイルの更新がなかった場合に変更しないように設定
+      @posts.picture = params[:picture].read
+    end
     @posts.save
   end
 
@@ -45,7 +47,7 @@ class PostsController < ApplicationController
 
   def get_image
     @posts = Post.find(params[:id])
-    send_data(@posts.picture,:disposition => "inline",:type => "image.png")
+    send_data(@posts.picture,:disposition => "inline",:type => "image.png/image.jpeg/image.jpg")
   end
 
 end
