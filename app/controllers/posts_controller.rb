@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all  # ここのPostはmodel名なので単数形、ここではidも取得しているからedit用にも値を拾える
+    # render json: @posts
   end
 
   def show
