@@ -22,6 +22,12 @@ class PostsController < ApplicationController
   end
 
   def update
+    @posts = Post.find(params[:id])
+    @posts.name = params[:name]
+    @posts.contents = params[:contents]
+    @posts.price = params[:price]
+    @posts.picture = params[:picture].read
+    @posts.save
   end
 
   def destroy
@@ -32,18 +38,9 @@ class PostsController < ApplicationController
   end
 
   def search
-    # @posts = Post.where(params.permit(:name))  # 検索ワードが含まれるレコードのみをindexとして表示　これpermitじゃなくても上手くいきそうだけどなんで駄目？whereメソッドの問題な気がする
-    @posts = Post.where("name like '%"+ params[:name] +"%'") # <= 部分一致検索可能
+    # @posts = Post.where(params.permit(:name))  # <= 完全一致検索
+    @posts = Post.where("name like '%"+ params[:name] +"%'") # <= 部分一致検索
     render "index"
-  end
-
-  def edit_save
-    @posts = Post.find(params[:id])
-    @posts.name = params[:name]
-    @posts.contents = params[:contents]
-    @posts.price = params[:price]
-    @posts.picture = params[:picture].read
-    @posts.save
   end
 
   def get_image

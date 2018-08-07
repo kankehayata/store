@@ -1,5 +1,5 @@
 <a>商品編集</a>
-<%= form_tag(edit_save_post_path(@posts), method: :post,multipart: true) do %>
+<%= form_tag(post_path(@posts), method: :patch,multipart: true) do %>
  <a>商品名</a>
  <textarea name="name"><%= @posts.name %></textarea><br>
  <a>説明</a>
