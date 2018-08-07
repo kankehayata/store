@@ -1,0 +1,13 @@
+<a>商品登録</a>
+<%= form_tag("/posts", method: :post,multipart: true) do %>
+ <a>商品名</a>
+ <textarea name="name"></textarea><br>
+ <a>説明</a>
+ <textarea name="contents"></textarea><br>
+ <a>価格</a>
+ <textarea name="price"></textarea><br>
+ <a>画像</a>
+ <input type="file" name="picture"><br>
+ <input type="submit" value="登録">
+<% end %>
+<a href="/">一覧へ</a>

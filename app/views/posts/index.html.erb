@@ -1,0 +1,22 @@
+<h1>TeamLabStore</h1>
+<a>商品一覧</a><br>
+<a>商品名 / 内容 / 価格 / 画像</a><br>
+<% @posts.each do |post| %>
+<%= post.name %>
+<%= post.contents %>
+<%= post.price %>
+<%= image_tag(get_image_post_path(post),:size => "50x50")%>
+<%= link_to "編集", edit_post_path(post) %>
+<%= link_to "削除", post_path(post),method: :delete,data: {confirm: "本当に削除しますか？" } %>
+<br>
+<% end %>
+<br>
+<a href="/posts/new">商品登録</a>
+<br><br>
+<%= form_tag(search_posts_path, method: :get) do %> <!-- 今の所完全一致しか受け入れられていない状況になってしまっている、部分一致でも拾いたい-->
+ <textarea name="name"></textarea><br>
+ <input type="submit" value="検索">
+<% end %><br>
+<a href="/">一覧へ</a>
+
+<!-- 画像表示ができない-->

@@ -1,0 +1,15 @@
+<a>商品編集</a>
+<%= form_tag(edit_save_post_path(@posts), method: :post,multipart: true) do %>
+ <a>商品名</a>
+ <textarea name="name"><%= @posts.name %></textarea><br>
+ <a>説明</a>
+ <textarea name="contents"><%= @posts.contents %></textarea><br>
+ <a>価格</a>
+ <textarea name="price"><%= @posts.price %></textarea><br>
+ <a>画像</a>
+ <input type="file" name="picture"><br>
+ <input type="submit" value="登録">
+<% end %>
+<a href="/">一覧へ</a>
+
+<!--画像編集のときの初期値を設定できずにいる -->
