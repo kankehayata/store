@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @posts = Post.new(params.permit(:name,:contents,:price,:picture))
-    @posts.picture = params[:picture].read  # readメソッドでバイナリで読み込むのでは？
+    @posts.picture = params[:picture].read  # readメソッドでバイナリデータに変換
     @posts.save
   end
 
@@ -32,7 +32,8 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.where(params.permit(:name))  # 検索ワードが含まれるレコードのみをindexとして表示　これpermitじゃなくても上手くいきそうだけどなんで駄目？whereメソッドの問題な気がする
+    # @posts = Post.where(params.permit(:name))  # 検索ワードが含まれるレコードのみをindexとして表示　これpermitじゃなくても上手くいきそうだけどなんで駄目？whereメソッドの問題な気がする
+    @posts = Post.where("name like '%"+ params[:name] +"%'") # <= 部分一致検索可能
     render "index"
   end
 
