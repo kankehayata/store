@@ -13,10 +13,8 @@
 <br>
 <a href="/posts/new">商品登録</a>
 <br><br>
-<%= form_tag(search_posts_path, method: :get) do %> <!-- 今の所完全一致しか受け入れられていない状況になってしまっている、部分一致でも拾いたい-->
+<%= form_tag(search_posts_path, method: :get) do %>
  <textarea name="name"></textarea><br>
  <input type="submit" value="検索">
 <% end %><br>
 <a href="/">一覧へ</a>
-
-<!-- 画像表示ができない-->
