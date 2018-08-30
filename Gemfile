@@ -62,6 +62,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-group :development, :test do
+group :development, :test, :production do # productionでもCORSできるように一時的に変更
   gem 'rack-cors', :require => 'rack/cors'
 end
