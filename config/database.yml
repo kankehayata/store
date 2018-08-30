@@ -51,5 +51,5 @@ production:
   <<: *default
   adapter: postgresql # heorku推奨のデータベース形式
   database: store_production
-  username: store
-  password: <%= ENV['STORE_DATABASE_PASSWORD'] %>
+  #username: store
+  #password: <%= ENV['STORE_DATABASE_PASSWORD'] %>
