@@ -19,6 +19,7 @@
 
       def edit
         @post = Post.find(params[:id])
+        render json: @post
       end
 
       def create
@@ -43,10 +44,6 @@
           @post.picture = params[:picture].read
         end
         @post.save
-        respond_to do |format|
-          format.html
-          format.json {render :json => @post}
-        end
       end
 
       def destroy
