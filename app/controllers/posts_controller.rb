@@ -2,8 +2,8 @@
       skip_before_action :verify_authenticity_token
 
       def index
-        @posts = Post.all
-        render json: @posts
+        #@posts = Post.all  #以下二行はtestでコメントアウト化中
+        #render json: @posts
         #respond_to do |format|
         #  format.html
         #  format.json {render :json => @posts}
