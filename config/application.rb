@@ -11,7 +11,7 @@ module Store
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-    if Rails.env.development? || Rails.env.production?  #  productionでもCORS問題に対応したつもり
+    if Rails.env.development?#  productionでもCORS問題に対応したつもり
       config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
         allow do
           origins '*'
